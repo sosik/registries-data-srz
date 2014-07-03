@@ -1,11 +1,11 @@
 [
-	'permissions.json',
-	'login.json',
-	'systemCredentials.json',
-	'people.json',
-	'company.json',
-	'group.json',
-	'groupMaster.json',
-	'member.json',
-	'organization.json'
+	"permissions.json",
+	"login.json",
+	"systemCredentials.json",
+	"people.json",
+	"company.json",
+	"group.json",
+	"groupMaster.json",
+	"member.json",
+	"organization.json"
 ]
