@@ -1,4 +1,4 @@
-<div class="sidebar active">
+<div class="sidebar active" onmousewheel="menuMouseWheelHandler()">
 		<ul>
 			<li psui-accordion-element title="{{'menu.member.title' | translate}}" icon-class="glyphicon-list">
 				<ul>
@@ -6,28 +6,28 @@
 					<li><a href="#/search/{{'uri://registries/member#'|uriescape}}"><span>Search</span></a></li>
 				</ul>
 			</li>
-			<li psui-accordion-element title="Company" icon-class="glyphicon-list">
+			<li psui-accordion-element title="{{'menu.company.title' | translate}}" icon-class="glyphicon-list">
 				<ul>
 					<li><a href="#/registry/new/{{'uri://registries/company'|uriescape}}"><span>New</span></a></li>
 					<li><a href="#/search/{{'uri://registries/company'|uriescape}}"><span>Search</span></a></li>
 				</ul>
 			</li>
-			<li psui-accordion-element title="My profile" icon-class="glyphicon-user">
+			<li psui-accordion-element title="{{'menu.my.profile.title' | translate}}" icon-class="glyphicon-user">
 				<ul>
-					<li><a href="#/personal-page"><span>Profil</span></a></li>
-					<li><a href="#/personal-change-password"><span>Zmena hesla</span></a></li>
+					<li><a href="#/personal-page"><span>{{'menu.profile.lower.level' | translate}}</span></a></li>
+					<li><a href="#/personal-change-password"><span>{{'menu.change.password.lower.level' | translate}}</span></a></li>
 				</ul>
 			</li>
-			<li psui-accordion-element title="Oprávnenia" icon-class="glyphicon-user">
+			<li psui-accordion-element title="{{'menu.permissions.title' | translate}}" icon-class="glyphicon-user">
 				<ul>
-					<li><a href="#/registry/new/{{'uri://registries/security#groupmaster'|uriescape}}" class="active"><span>Nová skupina</span></a></li>
-					<li><a href="#/security/group/edit/"><span>Skupiny oprávnení</span></a></li>
-					<li><a href="#/security/user/edit"><span>Oprávnenia používateľov</span></a></li>
+					<li><a href="#/registry/new/{{'uri://registries/security#groupmaster'|uriescape}}"><span>{{'menu.new.group.lower.level' | translate}}</span></a></li>
+					<li><a href="#/security/group/edit/"><span>{{'menu.permission.groups.lower.level' | translate}}</span></a></li>
+					<li><a href="#/security/user/edit"><span>{{'menu.user.permissions.lower.level' | translate}}</span></a></li>
 				</ul>
 			</li>
-			<li psui-accordion-element title="Schémy" icon-class="glyphicon-info-sign">
+			<li psui-accordion-element title="{{'menu.schemas.title' | translate}}" icon-class="glyphicon-info-sign">
 				<ul>
-					<li><a href="#/schema/edit"><span>Schema List</span></a></li>
+					<li><a href="#/schema/edit"><span>{{'menu.schema.list.lower.level' | translate}}</span></a></li>
 				</ul>
 			</li>
 		</ul>
