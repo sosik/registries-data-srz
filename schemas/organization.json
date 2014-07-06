@@ -3,6 +3,18 @@
 	"id": "uri://registries/organization#",
 	"table": "organizations",
 	"title": "Organizacie",
+	"_security": {
+		"_create": {
+			"_static":["Registry - write"]
+		},
+		"_read": {
+			"_static":["Registry - read"]
+		},
+		"_modify": {
+			"_static":["Registry - write"]
+		}
+	}, 
+	
 	"listFields": [
 		{"field":"id", "title": "ID"},
 		{"field":"baseData.name", "title":"Meno"}

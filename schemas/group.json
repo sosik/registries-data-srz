@@ -6,13 +6,13 @@
     "table": "groups",
     "_security": {
     	"_create": {
-    		"_static":["System Admin"]
+    		"_static":["Security - write"]
     	},
     	"_read": {
-    		"_static":["System Admin"]
+    		"_static":["Security - read"]
     	},
     	"_modify": {
-    		"_static":["System Admin"]
+    		"_static":["Security - write"]
     	}
     }, 
     "listFields": [

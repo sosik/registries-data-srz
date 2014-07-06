@@ -4,6 +4,10 @@
     "new": {
         "title": "Nový člen",
         "table": "people",
+        "_security" : {
+			"$ref" : "uri://registries/people#person/_security"
+			},
+
         "properties": {
             "baseData": {
                 "$ref": "uri://registries/people#person/properties/baseData"
@@ -30,6 +34,9 @@
     },
     "search": {
         "table": "people",
+          "_security" : {
+			"$ref" : "uri://registries/people#person/_security"
+	    },
         "title": "osoba",
         "listFields": {
             "$ref": "uri://registries/people#person/listFields"
@@ -42,6 +49,7 @@
             }
         ],
         "properties": {
+	  
             "baseData": {
                 "$ref": "uri://registries/people#person/properties/baseData"
             },

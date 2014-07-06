@@ -3,6 +3,18 @@
     "id": "uri://registries/people#person",
     "table": "people",
     "title": "person",
+	"_security": {
+		"_create": {
+			"_static":["Registry - write"]
+		},
+		"_read": {
+			"_static":["Registry - read"]
+		},
+		"_modify": {
+			"_static":["Registry - write"]
+		}
+	}, 
+    
     "listFields": [
         {
             "field": "baseData.name",
