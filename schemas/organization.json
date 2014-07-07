@@ -24,11 +24,6 @@
 			"title": "Základné údaje",
 			"type": "object",
 			"properties": {
-				"id": {
-					"title": "Identifikátor",
-					"type": "string",
-					"required": true
-				},
 				"name": {
 					"title": "Názov organizacie",
 					"type": "string",
