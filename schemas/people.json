@@ -3,26 +3,31 @@
     "id": "uri://registries/people#person",
     "table": "people",
     "title": "person",
-	"_security": {
-		"_create": {
-			"_static":["Registry - write"]
-		},
-		"_read": {
-			"_static":["Registry - read"]
-		},
-		"_modify": {
-			"_static":["Registry - write"]
-		}
-	}, 
-    
-    "listFields": [
-        {
-            "field": "baseData.name",
-            "title": "Meno"
+    "_security": {
+        "_create": {
+            "_static": [
+                "Registry - write"
+            ]
         },
+        "_read": {
+            "_static": [
+                "Registry - read"
+            ]
+        },
+        "_modify": {
+            "_static": [
+                "Registry - write"
+            ]
+        }
+    },
+    "listFields": [
         {
             "field": "baseData.surName",
             "title": "Priezvisko"
+        },
+        {
+            "field": "baseData.name",
+            "title": "Meno"
         },
         {
             "field": "baseData.id",
@@ -38,9 +43,9 @@
             "transCode": "schema.people.baseData",
             "type": "object",
             "properties": {
-                "id": {
-                    "title": "Identifikátor",
-                    "transCode": "schema.people.baseData.identifier",
+                "bornNumber": {
+                    "title": "Rodné číslo",
+                    "xxtransCode": "schema.people.baseData.bornNumber",
                     "type": "string",
                     "required": true
                 },
