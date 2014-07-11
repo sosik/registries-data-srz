@@ -185,44 +185,123 @@
             }
         },
         "hockeyPlayerInfo": {
-            "title": "Profil hráča",
+            "title": "Profil člena",
             "type": "object",
             "properties": {
                 "clubName": {
-                    "title": "Názov klubu",
+                    "title": "Názov ZO",
                     "required": false,
                     "$objectLink": {
                         "registry": "organizations",
                         "name": "baseData.name"
                     }
                 },
+                "suborganizationName": {
+                    "title": "Obvodná organizácia",
+                    "type": "string",
+                    "required": false
+                },
+                "memberId": {
+                    "title": "Číslo člena",
+                    "type": "string",
+                    "required": false
+                },
+                "fishlicenceNumber": {
+                    "title": "Číslo rybárskeho lístka",
+                    "type": "string",
+                    "required": false
+                },
                 "positionName": {
-                    "title": "Post",
+                    "title": "Funkcia",
                     "type": "string",
                     "required": false
                 },
-                "dressNumber": {
-                    "title": "Číslo dresu",
+                "membershipEnrolment": {
+                    "title": "Člen SRZ od",
+                    "type": "string",
+                    "required": false,
+                    "render": {
+                        "component": "psui-datepicker"
+                    }
+                },
+                "membershipExpiration": {
+                    "title": "Člen SRZ do",
+                    "type": "string",
+                    "required": false,
+                    "render": {
+                        "component": "psui-datepicker"
+                    }
+                },
+                "membershipBreak": {
+                    "title": "Prerušené členstvo v SRZ do",
+                    "type": "string",
+                    "required": false,
+                    "render": {
+                        "component": "psui-datepicker"
+                    }
+                },
+                "brigadeDuty": {
+                    "title": "Brigádnická povinnosť",
                     "type": "string",
                     "required": false
                 },
-                "playerHeight": {
-                    "title": "Výška",
+                "disciplinaryPunishment": {
+                    "title": "Disciplinárne previnenia",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+        "fishermanProfile": {
+            "title": "Profil člena",
+            "type": "object",
+            "properties": {
+                "clubName": {
+                    "title": "Názov ZO",
+                    "required": false,
+                    "$objectLink": {
+                        "registry": "organizations",
+                        "name": "baseData.name"
+                    }
+                },
+                "suborganizationName": {
+                    "title": "Obvodná organizácia",
                     "type": "string",
                     "required": false
                 },
-                "playerWeight": {
-                    "title": "Hmotnosť",
+                "memberId": {
+                    "title": "Číslo člena",
                     "type": "string",
                     "required": false
                 },
-                "stickHandling": {
-                    "title": "Držanie hokejky",
+                "fishlicenceNumber": {
+                    "title": "Číslo rybárskeho lístka",
                     "type": "string",
                     "required": false
                 },
-                "contractDate": {
-                    "title": "Zmluva zo dňa",
+                "positionName": {
+                    "title": "Funkcia",
+                    "type": "string",
+                    "required": false
+                },
+                "MembershipStartDate": {
+                    "title": "Člen v SRZ od",
+                    "type": "string",
+                    "required": false,
+                    "render": {
+                        "component": "psui-datepicker"
+                    }
+                },
+                "MembershipEndDate": {
+                    "title": "Člen v SRZ do",
+                    "type": "string",
+                    "required": false,
+                    "render": {
+                        "component": "psui-datepicker"
+                    }
+                },
+                "membershipBreak": {
+                    "title": "Prerušené členstvo v SRZ od",
                     "type": "string",
                     "required": false,
                     "render": {
@@ -317,21 +396,15 @@
                     "type": "string",
                     "required": false
                 },
-                "MembershipStartDate": {
-                    "title": "Člen od",
+                "brigadeDuty": {
+                    "title": "Brigádnická povinnosť",
                     "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
+                    "required": false
                 },
-                "MembershipEndDate": {
-                    "title": "Člen do",
+                "disciplinaryPunishment": {
+                    "title": "Disciplinárne previnenia",
                     "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
+                    "required": false
                 },
                 "note": {
                     "title": "Poznámka",

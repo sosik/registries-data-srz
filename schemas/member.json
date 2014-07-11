@@ -4,10 +4,9 @@
     "new": {
         "title": "Nový člen",
         "table": "people",
-        "_security" : {
-			"$ref" : "uri://registries/people#person/_security"
-			},
-
+        "_security": {
+            "$ref": "uri://registries/people#person/_security"
+        },
         "properties": {
             "baseData": {
                 "$ref": "uri://registries/people#person/properties/baseData"
@@ -15,14 +14,11 @@
             "contactInfo": {
                 "$ref": "uri://registries/people#person/properties/contactInfo"
             },
-            "bankInfo": {
-                "$ref": "uri://registries/people#person/properties/bankInfo"
-            },
             "photoInfo": {
                 "$ref": "uri://registries/people#person/properties/photoInfo"
             },
-            "hockeyPlayerInfo": {
-                "$ref": "uri://registries/people#person/properties/hockeyPlayerInfo"
+            "fishermanProfile": {
+                "$ref": "uri://registries/people#person/properties/fishermanProfile"
             },
             "otherInfo": {
                 "$ref": "uri://registries/people#person/properties/otherInfo"
@@ -34,9 +30,9 @@
     },
     "search": {
         "table": "people",
-          "_security" : {
-			"$ref" : "uri://registries/people#person/_security"
-	    },
+        "_security": {
+            "$ref": "uri://registries/people#person/_security"
+        },
         "title": "osoba",
         "listFields": {
             "$ref": "uri://registries/people#person/listFields"
@@ -49,15 +45,11 @@
             }
         ],
         "properties": {
-	  
             "baseData": {
                 "$ref": "uri://registries/people#person/properties/baseData"
             },
             "contactInfo": {
                 "$ref": "uri://registries/people#person/properties/contactInfo"
-            },
-            "bankInfo": {
-                "$ref": "uri://registries/people#person/properties/bankInfo"
             },
             "otherInfo": {
                 "$ref": "uri://registries/people#person/properties/otherInfo"
