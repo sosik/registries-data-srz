@@ -1,0 +1,108 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "uri://registries/user#security",
+    "new": {
+        "title": "Nový člen",
+        "transCode": "schema.member.new",
+        "table": "people",
+        "_security": {
+            "_create": {
+                "_static": [
+                    "Security - write"
+                ]
+            },
+            "_read": {
+                "_static": [
+                    "Security - read"
+                ]
+            },
+            "_modify": {
+                "_static": [
+                    "Security - write"
+                ]
+            }
+        },
+        "properties": {
+            "baseData": {
+                "$ref": "uri://registries/people#person/properties/baseData"
+            },
+            "contactInfo": {
+                "$ref": "uri://registries/people#person/properties/contactInfo"
+            },
+            "photoInfo": {
+                "$ref": "uri://registries/people#person/properties/photoInfo"
+            }
+        }
+    },
+    "view": {
+        "title": "Člen",
+        "transCode": "schema.member.view",
+        "table": "people",
+        "_security": {
+            "_create": {
+                "_static": [
+                    "Security - write"
+                ]
+            },
+            "_read": {
+                "_static": [
+                    "Security - read"
+                ]
+            },
+            "_modify": {
+                "_static": [
+                    "Security - write"
+                ]
+            }
+        },
+        "properties": {
+            "$ref": "uri://registries/member#new/properties"
+        }
+    },
+    "search": {
+        "table": "people",
+        "_security": {
+            "_create": {
+                "_static": [
+                    "Security - write"
+                ]
+            },
+            "_read": {
+                "_static": [
+                    "Security - read"
+                ]
+            },
+            "_modify": {
+                "_static": [
+                    "Security - write"
+                ]
+            }
+        },
+        "title": "osoba",
+        "transCode": "schema.member.view",
+        "listFields": {
+            "$ref": "uri://registries/people#person/listFields"
+        },
+        "forcedCriterias": [
+            {
+                "f": "baseData.name",
+                "op": "ex",
+                "v": ""
+            }
+        ],
+        "properties": {
+            "baseData": {
+                "$ref": "uri://registries/people#person/properties/baseData"
+            },
+            "contactInfo": {
+                "$ref": "uri://registries/people#person/properties/contactInfo"
+            },
+            "bankInfo": {
+                "$ref": "uri://registries/people#person/properties/bankInfo"
+            },
+            "otherInfo": {
+                "$ref": "uri://registries/people#person/properties/otherInfo"
+            }
+        }
+    }
+}

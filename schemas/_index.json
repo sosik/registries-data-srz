@@ -7,5 +7,6 @@
 	"group.json",
 	"groupMaster.json",
 	"member.json",
-	"organization.json"
+	"organization.json",
+	"userSecurity.json"
 ]

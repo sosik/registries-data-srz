@@ -1,34 +1,37 @@
 {
-	"$schema": "http://json-schema.org/schema#",
-	"id": "uri://registries/security#permissions",
-	"type": "object",
-	"properties": {
-	    "System User": {
-	      "title": "Systémový používateľ",
-	      "type": "boolean", 
-	      "default": true
-	    },
-	    "Registry - read": {
-	      "title": "Zobrazenie dát registrov",
-	      "type": "boolean",
-	      "default": true
-	    },
-	    "Registry - write": {
-	      "title": "Modifikácia dát registrov",
-	      "type": "boolean" ,
-	      "default" : true
-	    },
-	    "Security - read": {
-	      "title": "Zobrazenie dát zabezpečenia",
-	      "type": "boolean",
-	      "default": true
-	    },
-	    "Security - write": {
-	      "title": "Modifikácia dát zabezpečenia",
-	      "type": "boolean" ,
-	      "default" : true
-	    }
-
-        
-	}
+    "$schema": "http://json-schema.org/schema#",
+    "id": "uri://registries/security#permissions",
+    "type": "object",
+    "properties": {
+        "System User": {
+            "title": "Systémový používateľ",
+            "type": "boolean",
+            "default": true
+        },
+        "System Admin": {
+            "title": "Systémový administátor",
+            "type": "boolean",
+            "default": true
+        },
+        "Registry - read": {
+            "title": "Zobrazenie dát registrov",
+            "type": "boolean",
+            "default": true
+        },
+        "Registry - write": {
+            "title": "Modifikácia dát registrov",
+            "type": "boolean",
+            "default": true
+        },
+        "Security - read": {
+            "title": "Zobrazenie dát zabezpečenia",
+            "type": "boolean",
+            "default": true
+        },
+        "Security - write": {
+            "title": "Modifikácia dát zabezpečenia",
+            "type": "boolean",
+            "default": true
+        }
+    }
 }
