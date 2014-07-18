@@ -386,11 +386,12 @@
             "title": "Ostatné údaje",
             "type": "object",
             "properties": {
-                "isPhotoPublic": {
-                    "title": "Je fotka verejná",
-                    "type": "boolean",
+                "membershipFee": {
+                    "title": "Zaplatený členský poplatok?",
+                    " type": "string",
                     "required": false
                 },
+                
                 "idCardNumber": {
                     "title": "Číslo OP",
                     "type": "string",
@@ -404,6 +405,11 @@
                 "disciplinaryPunishment": {
                     "title": "Disciplinárne previnenia",
                     "type": "string",
+                    "required": false
+                },
+                "isPhotoPublic": {
+                    "title": "Je fotka verejná",
+                    "type": "boolean",
                     "required": false
                 },
                 "note": {
