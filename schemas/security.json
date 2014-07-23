@@ -1,0 +1,171 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/security",
+	"type": "object",
+	
+	"permissions": {
+		"type": "object",
+		"properties":{
+			
+			"System User": {
+				"title": "Systémový používateľ",
+				"type": "boolean",
+				"default": true
+			},
+			"System Admin": {
+				"title": "Systémový administátor",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry - read": {
+				"title": "Zobrazenie dát registrov",
+				"type": "boolean",
+				"default": true
+			},
+			"Registry - write": {
+				"title": "Modifikácia dát registrov",
+				"type": "boolean",
+				"default": true
+			},
+			"Security - read": {
+				"title": "Zobrazenie dát zabezpečenia",
+				"type": "boolean",
+				"default": true
+			},
+			"Security - write": {
+				"title": "Modifikácia dát zabezpečenia",
+				"type": "boolean",
+				"default": true
+			}
+		}
+	},
+	"login": {
+		"properties": {
+			"loginName": {
+				"title": "Prihlasovacie meno",
+				"type": "string"
+			},
+			"passwordHash": {
+				"title": "Hash hesla",
+				"description": "",
+				"type": "string"
+			},
+			"salt": {
+				"title": "Salt pre hash hesla",
+				"description": "",
+				"type": "string"
+			}
+		}
+	},
+	"systemCredentials": {
+		"type": "object",
+		"properties": {
+			"login": {
+				"$ref": "uri://registries/security#login"
+			},
+			"permissions": {
+				"$ref": "uri://registries/security#permissions"
+			},
+			"groups": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": "string"
+					}
+				}
+			},
+			"profiles": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"id": "string"
+					}
+				}
+			}
+		}
+	},
+	"profiles": {
+		"type": "object",
+		"table": "securityProfiles",
+		"title": "Security Profiles",
+		"_security": {
+			"_create": {
+				"_static": [
+					"Security - write"
+				]
+			},
+			"_read": {
+				"_static": [
+					"Security - read"
+				]
+			},
+			"_modify": {
+				"_static": [
+					"Security - write"
+				]
+			}
+		},
+		"listFields": [
+			{
+			"field": "baseData.name",
+			"title": "Nazov profilu"
+			}
+		],
+		"properties": {
+			"baseData": {
+				"title": "Základné údaje",
+				"type": "object",
+				"properties": {
+					
+					"name": {
+						"title": "Meno",
+						"transCode": "schema.people.baseData.name",
+						"type": "string",
+						"required": true
+					}
+					
+				}
+
+			},
+			"security": {
+				"properties":{
+
+					"permissions": {
+						"$ref": "uri://registries/security#permissions"
+					},
+					"groups": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": "string"
+							}
+						}
+					},
+					"forcedCriteria": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"applySchema": "String",
+								"criteria": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"f": "string",
+											"op": "string",
+											"v": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"$schema" : "http://json-schema.org/schema#",
+	"id" : "uri://registries/security#profilesmaster",
+	
+	"new" : {
+		"table":"securityProfiles",
+		"_security" : {
+			"$ref" : "uri://registries/security#profiles/_security"
+		},
+		"properties" : {
+			"baseData" : {
+				"$ref": "uri://registries/security#profiles/properties/baseData"
+			}
+		}
+	},
+	"view" : {
+		"$ref" : "uri://registries/security#profilesmaster/new"
+	},
+	"search" : {
+		"table":"securityProfiles",
+		"transCode":"schema.member.view",
+		"title":"profil",
+		"listFields": {
+			"$ref": "uri://registries/security#profiles/listFields"
+		},
+		"properties" : {
+			"baseData" : {
+				"$ref": "uri://registries/security#profiles/properties/baseData"
+			}
+		}	
+		
+	}
+}

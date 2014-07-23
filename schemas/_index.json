@@ -1,7 +1,6 @@
 [
-	"permissions.json",
-	"login.json",
-	"systemCredentials.json",
+	"security.json",
+	"securityMaster.json",
 	"people.json",
 	"company.json",
 	"group.json",
