@@ -87,7 +87,10 @@
                         "Muž",
                         "Žena"
                     ],
-                    "required": true
+                    "required": true,
+					"render": {
+						"component": "psui-selectbox"
+					}
                 },
                 "nationality": {
                     "title": "Štatna prislusnosť",
