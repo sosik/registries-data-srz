@@ -30,8 +30,8 @@
             "title": "Meno"
         },
         {
-            "field": "baseData.id",
-            "title": "Registračné číslo"
+            "field": "contactInfo.email",
+            "title": "Email"
         }
     ],
     "properties": {
@@ -394,7 +394,6 @@
                     " type": "string",
                     "required": false
                 },
-                
                 "idCardNumber": {
                     "title": "Číslo OP",
                     "type": "string",
