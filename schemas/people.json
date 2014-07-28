@@ -84,12 +84,17 @@
                     "title": "Pohlavie",
                     "type": " string",
                     "enum": [
-                        "Muž",
-                        "Žena"
+                        "M",
+                        "Z"
                     ],
+					"enumTransCodes": [
+						"schema.people.baseData.gender.enum.M",
+						"schema.people.baseData.gender.enum.Z"
+					],
                     "required": true,
 					"render": {
-						"component": "psui-selectbox"
+						"component": "psui-selectbox",
+						"searchable": true
 					}
                 },
                 "nationality": {

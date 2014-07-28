@@ -51,7 +51,9 @@ angular.module('registries')
 		"schema.people.otherInfo.idCardNumber":"Číslo OP",
 		"schema.people.otherInfo.membershipStartDate":"Člen od",
 		"schema.people.otherInfo.membershipEndDate":"Člen do",
-		"schema.people.otherInfo.note":"Poznámka"
+		"schema.people.otherInfo.note":"Poznámka",
+		"schema.people.baseData.gender.enum.M":"Muž",
+		"schema.people.baseData.gender.enum.Z":"Žena"
 	});
 
 	$translateProvider.translations('cz', {
@@ -104,7 +106,9 @@ angular.module('registries')
 		"schema.people.otherInfo.idCardNumber":"Číslo OP",
 		"schema.people.otherInfo.membershipStartDate":"Člen od",
 		"schema.people.otherInfo.membershipEndDate":"Člen do",
-		"schema.people.otherInfo.note":"Poznámka"
+		"schema.people.otherInfo.note":"Poznámka",
+		"schema.people.baseData.gender.enum.M":"Muž",
+		"schema.people.baseData.gender.enum.Z":"Žena"
 		
 	});
 }]);
