@@ -8,5 +8,11 @@
 	"member.json",
 	"organization.json",
 	"userSecurity.json",
-	"statistics.json"
+	"statistics.json",
+	"countries.json",
+	"towns.json",
+	"nationality.json",
+	"application.json",
+	"fees.json",
+	"events.json"
 ]

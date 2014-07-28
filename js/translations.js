@@ -53,7 +53,9 @@ angular.module('registries')
 		"schema.people.otherInfo.membershipEndDate":"Člen do",
 		"schema.people.otherInfo.note":"Poznámka",
 		"schema.people.baseData.gender.enum.M":"Muž",
-		"schema.people.baseData.gender.enum.Z":"Žena"
+		"schema.people.baseData.gender.enum.Z":"Žena",
+		"schema.people.enum.A":"Áno",
+		"schema.people.enum.N":"Nie"
 	});
 
 	$translateProvider.translations('cz', {

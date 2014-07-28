@@ -68,10 +68,7 @@
                     "required": true
                 },
                 "city": {
-                    "title": "Obec",
-                    "xxtransCode": "schema.org.city",
-                    "type": "string",
-                    "required": true
+                    "$ref": "uri://registries/towns#town"
                 },
                 "zipCode": {
                     "title": "PSČ",
@@ -80,10 +77,7 @@
                     "required": true
                 },
                 "country": {
-                    "title": "Štát",
-                    "xxtransCode": "schema.org.country",
-                    "type": "string",
-                    "required": true
+                    "$ref": "uri://registries/countries#country"
                 }
             }
         },
@@ -122,10 +116,7 @@
                     "required": true
                 },
                 "city": {
-                    "title": "Obec",
-                    "xxtransCode": "schema.org.city",
-                    "type": "string",
-                    "required": true
+                    "$ref": "uri://registries/towns#town"
                 },
                 "zipCode": {
                     "title": "PSČ",
@@ -134,10 +125,7 @@
                     "required": true
                 },
                 "country": {
-                    "title": "Štát",
-                    "xxtransCode": "schema.org.country",
-                    "type": "string",
-                    "required": true
+                    "$ref": "uri://registries/countries#country"
                 }
             }
         },

@@ -98,9 +98,7 @@
 					}
                 },
                 "nationality": {
-                    "title": "Štatna prislusnosť",
-                    "type": "string",
-                    "required": true
+                    "$ref": "uri://registries/nationality#country"
                 }
             }
         },
@@ -115,7 +113,7 @@
                     "render": {
                         "component": "psui-uploadable-image",
                         "height": 244,
-                        "width": 205
+                        "width": 206
                     }
                 }
             }
@@ -135,9 +133,7 @@
                     "required": true
                 },
                 "city": {
-                    "title": "Obec",
-                    "type": "string",
-                    "required": true
+                    "$ref": "uri://registries/towns#town"
                 },
                 "zipCode": {
                     "title": "PSČ",
@@ -145,9 +141,7 @@
                     "required": true
                 },
                 "country": {
-                    "title": "Štát",
-                    "type": "string",
-                    "required": true
+                    "$ref": "uri://registries/countries#country"
                 },
                 "phoneNumber": {
                     "title": "Telefón",
@@ -397,7 +391,19 @@
                 "membershipFee": {
                     "title": "Zaplatený členský poplatok?",
                     " type": "string",
-                    "required": false
+                    "enum": [
+                        "A",
+                        "N"
+                    ],
+					"enumTransCodes": [
+						"schema.people.enum.A",
+						"schema.people.enum.N"
+					],
+                    "required": false,
+					"render": {
+						"component": "psui-selectbox",
+						"searchable": true
+					}
                 },
                 "idCardNumber": {
                     "title": "Číslo OP",
@@ -417,7 +423,19 @@
                 "isPhotoPublic": {
                     "title": "Je fotka verejná",
                     "type": "boolean",
-                    "required": false
+                    "enum": [
+                        "A",
+                        "N"
+                    ],
+					"enumTransCodes": [
+						"schema.people.enum.A",
+						"schema.people.enum.N"
+					],
+                    "required": false,
+					"render": {
+						"component": "psui-selectbox",
+						"searchable": true
+					}
                 },
                 "note": {
                     "title": "Poznámka",
