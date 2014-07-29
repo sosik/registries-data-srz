@@ -1,0 +1,106 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/fees#",
+	"new": {
+        "title": "Nový poplatok",
+		"xxtransCode":"schema.org.new",
+        "table": "fees",
+        "_security": {
+			"_create": {
+				"_static":["Registry - write"]
+			},
+			"_read": {
+				"_static":["Registry - read"]
+			},
+			"_modify": {
+				"_static":["Registry - write"]
+			}
+		},
+
+        "properties": {
+            "baseData": {
+                "title": "Základné údaje",
+				"type": "object",
+				"properties": {
+					"name": {
+						"title": "Názov poplatku",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true
+					},
+					"details": {
+						"title": "Detaily",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true,
+						"large":"false"
+					},
+					"owner": {
+						"title": "Platiteľ",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true
+					},
+					"startDate": {
+						"title": "Dátum zaplatenia",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true,
+						"render": {
+							"component": "psui-datepicker"
+						}
+					},
+					"money": {
+						"title": "Poplatok",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true
+					}
+				}
+            }
+        }
+	},
+	"view": {
+        "title": "Poplatok",
+		"xxtransCode":"schema.org.view",
+        "table": "fees",
+        "_security": {
+			"_create": {
+				"_static":["Registry - write"]
+			},
+			"_read": {
+				"_static":["Registry - read"]
+			},
+			"_modify": {
+				"_static":["Registry - write"]
+			}
+		},
+		"properties":{
+			"$ref": "uri://registries/fees#new/properties"
+		}
+	},
+	"search": {
+		"table": "fees",
+		"_security": {
+			"_create": {
+				"_static":["Registry - write"]
+			},
+			"_read": {
+				"_static":["Registry - read"]
+			},
+			"_modify": {
+				"_static":["Registry - write"]
+			}
+		},
+        "title": "Poplatok",
+		"xxtransCode":"schema.org.view",
+        "listFields": [
+            {"field":"baseData.name", "title":"Meno", "transCode":"schema.org.listFields.name"}
+        ],
+        "properties": {
+            "baseData": {
+                "$ref": "uri://registries/fees#new/properties/baseData"
+            }
+        }
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/regions#",
+	"type": "object",
+	"region":{
+		"title": "Kraj",
+		"transCode": "schema.people.baseData.region",
+        "type": "string",
+		"enum":[
+			"Bratislavský kraj",
+			"Trnavský kraj",
+			"Trenčiansky kraj",
+			"Nitriansky kraj",
+			"Žilinský kraj",
+			"Banskobystrický kraj",
+			"Prešovský kraj",
+			"Košický kraj"
+		],
+        "required": true
+	}
+}

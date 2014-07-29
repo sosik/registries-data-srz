@@ -1,0 +1,135 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/application#",
+	"new": {
+        "title": "Nová žiadosť",
+		"xxtransCode":"schema.org.new",
+        "table": "applications",
+        "_security": {
+			"_create": {
+				"_static":["Registry - write"]
+			},
+			"_read": {
+				"_static":["Registry - read"]
+			},
+			"_modify": {
+				"_static":["Registry - write"]
+			}
+		},
+
+        "properties": {
+            "baseData": {
+                "title": "Základné údaje",
+				"type": "object",
+				"properties": {
+					"name": {
+						"title": "Názov žiadosti",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true
+					},
+					"details": {
+						"title": "Detaily",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true,
+						"large":"true"
+					},
+					"owner": {
+						"title": "Žiadateľ",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true
+					},
+					"startDate": {
+						"title": "Dátum podania žiadosti",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true,
+						"render": {
+							"component": "psui-datepicker"
+						}
+					},
+					"endDate": {
+						"title": "Dátum vybavenia",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": false,
+						"render": {
+							"component": "psui-datepicker"
+						}
+					},
+					"proceeder": {
+						"title": "Vybavovateľ",
+						"xxtransCode": "schema.org.baseData.name",
+						"required": true,
+						"$objectLink": {
+							"registry": "people",
+							"name": "baseData.name"
+						}
+					},
+					"state": {
+						"title": "Stav žiadosti",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": false,
+						"enum": [
+							"vybavené",
+							"v procese vybavovania"
+						]
+					},
+					"result": {
+						"title": "Uznesenie",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": false
+					}
+				}
+            }
+        }
+	},
+	"view": {
+        "title": "Žiadosť",
+		"xxtransCode":"schema.org.view",
+        "table": "applications",
+        "_security": {
+			"_create": {
+				"_static":["Registry - write"]
+			},
+			"_read": {
+				"_static":["Registry - read"]
+			},
+			"_modify": {
+				"_static":["Registry - write"]
+			}
+		},
+		"properties":{
+			"$ref": "uri://registries/application#new/properties"
+		}
+	},
+	"search": {
+		"table": "applications",
+		"_security": {
+			"_create": {
+				"_static":["Registry - write"]
+			},
+			"_read": {
+				"_static":["Registry - read"]
+			},
+			"_modify": {
+				"_static":["Registry - write"]
+			}
+		},
+        "title": "Žiadosť",
+		"xxtransCode":"schema.org.view",
+        "listFields": [
+            {"field":"baseData.name", "title":"Meno", "xxtransCode":"schema.org.listFields.name"},
+			{"field":"baseData.state", "title":"Stav", "xxtransCode":"schema.org.listFields.name"}
+        ],
+        "properties": {
+            "baseData": {
+                "$ref": "uri://registries/application#new/properties/baseData"
+            }
+        }
+	}
+}

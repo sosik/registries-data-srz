@@ -1,0 +1,134 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/events#",
+	"new": {
+        "title": "Nová udalosť",
+		"xxtransCode":"schema.org.new",
+        "table": "events",
+        "_security": {
+			"_create": {
+				"_static":["Registry - write"]
+			},
+			"_read": {
+				"_static":["Registry - read"]
+			},
+			"_modify": {
+				"_static":["Registry - write"]
+			}
+		},
+
+        "properties": {
+            "baseData": {
+                "title": "Základné údaje",
+				"type": "object",
+				"properties": {
+					"name": {
+						"title": "Názov udalosti",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true
+					},
+					"details": {
+						"title": "Detaily",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true,
+						"large":"true"
+					},
+					"place": {
+						"title": "Miesto udalosti",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true
+					},
+					"time": {
+						"title": "Čas udalosti",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true,
+						"render": {
+							"component": "psui-datepicker"
+						}
+					},
+					"end": {
+						"title": "Čas ukončenia",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true,
+						"render": {
+							"component": "psui-datepicker"
+						}
+					},
+					"organizator": {
+						"title": "Organizátor",
+						"xxtransCode": "schema.org.baseData.name",
+						"required": false,
+						"$objectLink": {
+							"registry": "organizations",
+							"name": "baseData.name"
+						}
+					},
+					"sponzor": {
+						"title": "Sponzor",
+						"xxtransCode": "schema.org.baseData.name",
+						"required": false,
+						"$objectLink": {
+							"registry": "organizations",
+							"name": "baseData.name"
+						}
+					},
+					"ticketCost": {
+						"title": "Vstupné",
+						"xxtransCode": "schema.org.baseData.name",
+						"type": "string",
+						"required": true
+					}
+				}
+            }
+        }
+	},
+	"view": {
+        "title": "Udalosť",
+		"xxtransCode":"schema.org.view",
+        "table": "events",
+        "_security": {
+			"_create": {
+				"_static":["Registry - write"]
+			},
+			"_read": {
+				"_static":["Registry - read"]
+			},
+			"_modify": {
+				"_static":["Registry - write"]
+			}
+		},
+		"properties":{
+			"$ref": "uri://registries/events#new/properties"
+		}
+	},
+	"search": {
+		"table": "events",
+		"_security": {
+			"_create": {
+				"_static":["Registry - write"]
+			},
+			"_read": {
+				"_static":["Registry - read"]
+			},
+			"_modify": {
+				"_static":["Registry - write"]
+			}
+		},
+        "title": "Udalosť",
+		"xxtransCode":"schema.org.view",
+        "listFields": [
+            {"field":"baseData.name", "title":"Meno", "xxtransCode":"schema.org.listFields.name"},
+			{"field":"baseData.start", "title":"Dátum začiatka", "xxtransCode":"schema.org.listFields.name"}
+        ],
+        "properties": {
+            "baseData": {
+                "$ref": "uri://registries/events#new/properties/baseData"
+            }
+        }
+	}
+}
