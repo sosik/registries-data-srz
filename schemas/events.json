@@ -2,10 +2,10 @@
 	"$schema": "http://json-schema.org/schema#",
 	"id": "uri://registries/events#",
 	"new": {
-        "title": "Nová udalosť",
+		"title": "Nová udalosť",
 		"xxtransCode":"schema.org.new",
-        "table": "events",
-        "_security": {
+		"table": "events",
+		"_security": {
 			"_create": {
 				"_static":["Registry - write"]
 			},
@@ -16,10 +16,9 @@
 				"_static":["Registry - write"]
 			}
 		},
-
-        "properties": {
-            "baseData": {
-                "title": "Základné údaje",
+		"properties": {
+			"baseData": {
+				"title": "Základné údaje",
 				"type": "object",
 				"properties": {
 					"name": {
@@ -65,7 +64,7 @@
 						"required": false,
 						"$objectLink": {
 							"registry": "organizations",
-							"name": "baseData.name"
+							"name": "baseData.name.v"
 						}
 					},
 					"sponzor": {
@@ -74,7 +73,7 @@
 						"required": false,
 						"$objectLink": {
 							"registry": "organizations",
-							"name": "baseData.name"
+							"name": "baseData.name.v"
 						}
 					},
 					"ticketCost": {
@@ -84,14 +83,14 @@
 						"required": true
 					}
 				}
-            }
-        }
+			}
+		}
 	},
 	"view": {
-        "title": "Udalosť",
+		"title": "Detail udalosti",
 		"xxtransCode":"schema.org.view",
-        "table": "events",
-        "_security": {
+		"table": "events",
+		"_security": {
 			"_create": {
 				"_static":["Registry - write"]
 			},
@@ -107,6 +106,7 @@
 		}
 	},
 	"search": {
+		"title": "Udalosť",
 		"table": "events",
 		"_security": {
 			"_create": {
@@ -119,16 +119,33 @@
 				"_static":["Registry - write"]
 			}
 		},
-        "title": "Udalosť",
 		"xxtransCode":"schema.org.view",
-        "listFields": [
-            {"field":"baseData.name", "title":"Meno", "xxtransCode":"schema.org.listFields.name"},
-			{"field":"baseData.start", "title":"Dátum začiatka", "xxtransCode":"schema.org.listFields.name"}
-        ],
-        "properties": {
-            "baseData": {
-                "$ref": "uri://registries/events#new/properties/baseData"
-            }
-        }
+		"listFields": [
+			{
+				"field":"baseData.name", 
+				"title":"Názov", 
+				"xxtransCode":"schema.org.listFields.name"
+			},
+			{
+				"field":"baseData.place", 
+				"title":"Miesto", 
+				"xxtransCode":"schema.org.listFields.name"
+			},
+			{
+				"field":"baseData.start", 
+				"title":"Dátum začiatka", 
+				"xxtransCode":"schema.org.listFields.name"
+			},
+			{
+				"field":"baseData.ticketCost", 
+				"title":"Vstupné", 
+				"xxtransCode":"schema.org.listFields.name"
+			}
+		],
+		"properties": {
+			"baseData": {
+				"$ref": "uri://registries/events#new/properties/baseData"
+			}
+		}
 	}
 }

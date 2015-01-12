@@ -2,10 +2,10 @@
 	"$schema": "http://json-schema.org/schema#",
 	"id": "uri://registries/application#",
 	"new": {
-        "title": "Nová žiadosť",
+		"title": "Nová žiadosť",
 		"xxtransCode":"schema.org.new",
-        "table": "applications",
-        "_security": {
+		"table": "applications",
+		"_security": {
 			"_create": {
 				"_static":["Registry - write"]
 			},
@@ -16,10 +16,9 @@
 				"_static":["Registry - write"]
 			}
 		},
-
-        "properties": {
-            "baseData": {
-                "title": "Základné údaje",
+		"properties": {
+			"baseData": {
+				"title": "Základné údaje",
 				"type": "object",
 				"properties": {
 					"name": {
@@ -65,7 +64,8 @@
 						"required": true,
 						"$objectLink": {
 							"registry": "people",
-							"name": "baseData.name"
+							"name": "baseData.name.v",
+							"surName": "baseData.surName.v"
 						}
 					},
 					"state": {
@@ -85,14 +85,14 @@
 						"required": false
 					}
 				}
-            }
-        }
+			}
+		}
 	},
 	"view": {
-        "title": "Žiadosť",
+		"title": "Detail žiadosti",
 		"xxtransCode":"schema.org.view",
-        "table": "applications",
-        "_security": {
+		"table": "applications",
+		"_security": {
 			"_create": {
 				"_static":["Registry - write"]
 			},
@@ -120,16 +120,39 @@
 				"_static":["Registry - write"]
 			}
 		},
-        "title": "Žiadosť",
+		"title": "Žiadosť",
 		"xxtransCode":"schema.org.view",
-        "listFields": [
-            {"field":"baseData.name", "title":"Meno", "xxtransCode":"schema.org.listFields.name"},
-			{"field":"baseData.state", "title":"Stav", "xxtransCode":"schema.org.listFields.name"}
-        ],
-        "properties": {
-            "baseData": {
-                "$ref": "uri://registries/application#new/properties/baseData"
-            }
-        }
+		"listFields": [
+			{
+				"field":"baseData.name",
+				"title":"Názov", 
+				"xxtransCode":"schema.org.listFields.name"
+			},
+			{
+				"field":"baseData.owner", 
+				"title":"Žiadateľ", 
+				"xxtransCode":"schema.org.listFields.name"
+			},
+			{
+				"field":"baseData.startDate", 
+				"title":"Dátum podania", 
+				"xxtransCode":"schema.org.listFields.name"
+			},
+			{
+				"field":"baseData.endDate", 
+				"title":"Dátum vybavenia", 
+				"xxtransCode":"schema.org.listFields.name"
+			},
+			{
+				"field":"baseData.state", 
+				"title":"Stav", 
+				"xxtransCode":"schema.org.listFields.name"
+			}
+		],
+		"properties": {
+			"baseData": {
+				"$ref": "uri://registries/application#new/properties/baseData"
+			}
+		}
 	}
 }

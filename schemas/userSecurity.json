@@ -83,7 +83,7 @@
         "listFields": {
             "$ref": "uri://registries/people#person/listFields"
         },
-        "forcedCriterias": [
+        "forcedCriteria": [
             {
                 "f": "baseData.name",
                 "op": "ex",

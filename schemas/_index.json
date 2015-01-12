@@ -14,5 +14,7 @@
 	"nationality.json",
 	"application.json",
 	"fees.json",
-	"events.json"
+	"events.json",
+	"mailTemplates.json",
+	"mailTemplatesMaster.json"
 ]

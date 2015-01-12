@@ -2,28 +2,64 @@
 	"$schema": "http://json-schema.org/schema#",
 	"id": "uri://registries/statistics",
 	"view": {
-	"title": "statistics",
-	"transCode":"schema.statistics.view",
-	"_security": {
-		"_read": {
-			"_static":["Registry - read"]
-		}
-	},
-	"properties":{
-
-		"baseData": {
+		"title": "statistics",
+		"xxtransCode":"schema.statistics.view",
+		"_security": {
+			"_read": {
+				"_static":["Registry - read"]
+			}
+		},
+		"properties":{
+			"baseData": {
 				"title": "Základné statistiky",
-				"transCode": "schema.statistics.baseData",
+				"xxtransCode": "schema.statistics.baseData",
 				"type": "object",
 				"properties":{
 					"numberOfMembers":{
 						"title":"Pocet clenov",
-						"transCode":"schema.statistics.member.count",
+						"xxtransCode":"schema.statistics.member.count",
 						"type":"Decimal"
 					},
 					"numberOfWomen":{
 						"title":"Pocet zien",
-						"transCode":"schema.statistics.women.count",
+						"xxtransCode":"schema.statistics.women.count",
+						"type":"Decimal"
+					}
+				}
+			},
+			"fees": {
+				"title": "Poplatky",
+				"xxtransCode": "schema.statistics.fees",
+				"type": "object",
+				"properties":{
+					"expectedCount":{
+						"title":"Pocet vystavených",
+						"xxtransCode":"schema.statistics.fees.expected.count",
+						"type":"Decimal"
+					},
+					"expectedSum":{
+						"title":"Suma vystavených",
+						"xxtransCode":"schema.statistics.fees.expected.sum",
+						"type":"Decimal"
+					},
+					"paidCount":{
+						"title":"Pocet zaplatených",
+						"xxtransCode":"schema.statistics.fees.paid.count",
+						"type":"Decimal"
+					},
+					"paidSum":{
+						"title":"Suma zaplatených",
+						"xxtransCode":"schema.statistics.fees.paid.sum",
+						"type":"Decimal"
+					},
+					"overdueCount":{
+						"title":"Pocet po splatnosti",
+						"xxtransCode":"schema.statistics.fees.overdue.count",
+						"type":"Decimal"
+					},
+					"overdueSum":{
+						"title":"Suma po splatnosti",
+						"xxtransCode":"schema.statistics.fees.overdue.sum",
 						"type":"Decimal"
 					}
 				}

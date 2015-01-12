@@ -1,0 +1,42 @@
+{
+	"$schema" : "http://json-schema.org/schema#",
+	"id" : "uri://registries/mailtemplates#master",
+	"new" : {
+		"title": "Nový vzor",
+		"transCode": "schema.mailTemplate.new",
+		"table" : "mailtemplates",
+		"_security" : {
+			"$ref" : "uri://registries/mailtemplates#_security"
+		},
+		"properties" : {
+			"baseData" : {
+				"$ref": "uri://registries/mailtemplates#properties/baseData"
+			}
+		}
+	},
+	"view" : {
+		"title": "Vzor",
+		"transCode": "schema.mailTemplate.view",
+		"table" : "mailtemplates",
+		"_security" : {
+			"$ref" : "uri://registries/mailtemplates#master/new/_security"
+		},
+		"properties" : {
+			"$ref" : "uri://registries/mailtemplates#master/new/properties"
+		}
+	},
+	"search" : {
+		"title": "Vzor",
+		"transCode": "schema.mailTemplate.search",
+		"table": "mailtemplates",
+		"_security" : {
+			"$ref" : "uri://registries/mailtemplates#_security"
+		},
+		"properties" : {
+			"$ref" : "uri://registries/mailtemplates#master/new/properties"
+		},
+		"listFields" : {
+			"$ref" : "uri://registries/mailtemplates#listFields"
+		}
+	}
+}
