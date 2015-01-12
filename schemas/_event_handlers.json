@@ -1,0 +1,22 @@
+[
+    {
+        "name": "new-transfer-updates-player",
+        "file": "data/js/event-handlers/fee-modified.js",
+        "enabled": true
+    },
+    {
+        "name": "impot-created",
+        "file": "data/js/event-handlers/import-created.js",
+        "enabled": true
+    },
+    {
+        "name": "payment-created",
+        "file": "data/js/event-handlers/payment-modified.js",
+        "enabled": true
+    },
+    {
+        "name": "processing-error-handler",
+        "file": "data/js/event-handlers/processing-error-handler.js",
+        "enabled": true
+    }
+]

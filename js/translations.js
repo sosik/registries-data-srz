@@ -55,7 +55,17 @@ angular.module('registries')
 		"schema.people.baseData.gender.enum.M":"Muž",
 		"schema.people.baseData.gender.enum.Z":"Žena",
 		"schema.people.enum.A":"Áno",
-		"schema.people.enum.N":"Nie"
+		"schema.people.enum.N":"Nie",
+
+		"schema.mailTemplate.new": "Nový vzor",
+		"schema.mailTemplate.view": "Vzor",
+		"schema.mailTemplate.search": "Vzor",
+		"schema.mailTemplate.basedata.title":"Základné údaje",
+		"schema.mailTemplate.basedata.name":"Názov vzoru",
+		"schema.mailTemplate.basedata.subject":"Predmet vzoru",
+		"schema.mailTemplate.basedata.text":"Text vzoru",
+		"schema.mailTemplate.basedata.html":"HTML vzor",
+		"schema.mailTemplate.listFields.title":"Názov vzoru"
 	});
 
 	$translateProvider.translations('cz', {
@@ -110,7 +120,16 @@ angular.module('registries')
 		"schema.people.otherInfo.membershipEndDate":"Člen do",
 		"schema.people.otherInfo.note":"Poznámka",
 		"schema.people.baseData.gender.enum.M":"Muž",
-		"schema.people.baseData.gender.enum.Z":"Žena"
-		
+		"schema.people.baseData.gender.enum.Z":"Žena",
+
+		"schema.mailTemplate.new": "Nový vzor",
+		"schema.mailTemplate.view": "Vzor",
+		"schema.mailTemplate.search": "Vzor",
+		"schema.mailTemplate.basedata.title":"Základné údaje",
+		"schema.mailTemplate.basedata.name":"Názov vzoru",
+		"schema.mailTemplate.basedata.subject":"Predmet vzoru",
+		"schema.mailTemplate.basedata.text":"Text vzoru",
+		"schema.mailTemplate.basedata.html":"HTML vzor",
+		"schema.mailTemplate.listFields.title":"Názov vzoru"
 	});
 }]);

@@ -1,0 +1,65 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/mailtemplates#",
+	"title": "Security group",
+	"type": "object",
+	"table": "mailtemplates",
+	"listFields": [
+		{
+			"field": "baseData.name",
+			"title": "Nazov vzoru",
+			"transCode":"schema.mailtemplates.listFields.title"
+		}
+	],
+	"_security": {
+			"_create": {
+				"_static": [
+					"Registry - write"
+				]
+			},
+			"_read": {
+				"_static": [
+					"Registry - read"
+				]
+			},
+			"_modify": {
+				"_static": [
+					"Registry - write"
+				]
+			}
+	},
+	"properties": {
+		"baseData": {
+			"title": "Základné údaje",
+			"transCode":"schema.mailTemplate.basedata.title",
+			"type": "object",
+			"properties": {
+				"name": {
+					"title": "Názov vzoru",
+					"transCode":"schema.mailTemplate.basedata.name",
+					"type": "string",
+					"required": true
+				},
+				"subjectTemplate": {
+					"title": "Predmet vzoru",
+					"transCode":"schema.mailTemplate.basedata.subject",
+					"type": "string",
+					"required": true
+				},
+				"textTemplate":{
+					"title": "Text vzoru",
+					"transCode":"schema.mailTemplate.basedata.text",
+					"type": "string",
+					"required": true
+				},
+				"htmlTemplate":{
+					"title": "HTML vzor",
+					"transCode":"schema.mailTemplate.basedata.html",
+					"type": "string",
+					"required": false
+				}
+			}
+		}
+	}
+
+}

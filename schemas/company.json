@@ -2,12 +2,36 @@
 	"$schema": "http://json-schema.org/schema#",
 	"id": "uri://registries/company#",
 	"new": {
-        "$ref": "uri://registries/organization#"
+		"title": "Nová organizácia",
+		"table": "organizations",
+		"_security": {
+			"$ref": "uri://registries/organization#_security"
+		},
+		"properties": {
+			"$ref": "uri://registries/organization#properties"
+		}
 	},
 	"view": {
-        "$ref": "uri://registries/organization#"
+		"title": "Detail organizácie",
+		"table": "organizations",
+		"_security": {
+			"$ref": "uri://registries/organization#_security"
+		},
+		"properties": {
+			"$ref": "uri://registries/organization#properties"
+		}
 	},
 	"search": {
-        "$ref": "uri://registries/organization#"
+		"title": "Organizácia",
+		"table": "organizations",
+		"listFields": {
+			"$ref": "uri://registries/organization#listFields"
+		},
+		"_security": {
+			"$ref": "uri://registries/organization#_security"
+		},
+		"properties": {
+			"$ref": "uri://registries/organization#properties"
+		}
 	}
 }

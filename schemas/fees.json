@@ -2,105 +2,208 @@
 	"$schema": "http://json-schema.org/schema#",
 	"id": "uri://registries/fees#",
 	"new": {
-        "title": "Nový poplatok",
-		"xxtransCode":"schema.org.new",
-        "table": "fees",
-        "_security": {
+		"title": "Nový poplatok",
+		"xxtransCode": "schema.fees.new",
+		"table": "fees",
+		"_security": {
 			"_create": {
-				"_static":["Registry - write"]
+				"_static": [
+					"Registry - write"
+				]
 			},
 			"_read": {
-				"_static":["Registry - read"]
+				"_static": [
+					"Registry - read"
+				]
 			},
 			"_modify": {
-				"_static":["Registry - write"]
+				"_static": [
+					"Registry - write"
+				]
 			}
 		},
-
-        "properties": {
-            "baseData": {
-                "title": "Základné údaje",
+		"properties": {
+			"baseData": {
+				"title": "Základné údaje",
+				"xxtransCode": "schema.fees.baseData",
 				"type": "object",
 				"properties": {
-					"name": {
-						"title": "Názov poplatku",
-						"xxtransCode": "schema.org.baseData.name",
+					"member": {
+						"title": "Člen",
+						"xxtransCode": "schema.fees.baseData.member",
+						"type": "string",
+						"required": true,
+						"$objectLink": {
+							"registry": "people",
+							"surName": "baseData.surName.v",
+							"name": "baseData.name.v"
+						}
+					},
+					"membershipFee": {
+						"title": "Výška poplatku",
+						"xxtransCode": "schema.fees.baseData.membershipFee",
 						"type": "string",
 						"required": true
 					},
-					"details": {
-						"title": "Detaily",
-						"xxtransCode": "schema.org.baseData.name",
+					"setupDate": {
+						"title": "Dátum vystavenia",
+						"xxtransCode": "schema.fees.baseData.setupDate",
 						"type": "string",
-						"required": true,
-						"large":"false"
-					},
-					"owner": {
-						"title": "Platiteľ",
-						"xxtransCode": "schema.org.baseData.name",
-						"type": "string",
-						"required": true
-					},
-					"startDate": {
-						"title": "Dátum zaplatenia",
-						"xxtransCode": "schema.org.baseData.name",
-						"type": "string",
-						"required": true,
+						"required": false,
 						"render": {
 							"component": "psui-datepicker"
 						}
 					},
-					"money": {
-						"title": "Poplatok",
-						"xxtransCode": "schema.org.baseData.name",
+					"variableSymbol": {
+						"title": "Variabilný symbol",
+						"xxtransCode": "schema.fees.baseData.variableSymbol",
 						"type": "string",
-						"required": true
+						"required": false
+					},
+					"dueDate": {
+						"title": "Dátum splatnosti",
+						"xxtransCode": "schema.fees.baseData.dueDate",
+						"type": "string",
+						"required": false,
+						"render": {
+							"component": "psui-datepicker"
+						}
+					},
+					"membershipFeePaid": {
+						"title": "Zaplatená čiastka",
+						"xxtransCode": "schema.fees.baseData.membershipFeePaid",
+						"type": "string",
+						"required": false
+					},
+					"dateOfPayment": {
+						"title": "Dátum zaplatenia",
+						"xxtransCode": "schema.fees.baseData.dateOfPayment",
+						"type": "string",
+						"required": false,
+						"render": {
+							"component": "psui-datepicker"
+						}
+					},
+					"notes": {
+						"title": "Poznámka",
+						"xxtransCode": "schema.fees.baseData.notes",
+						"type": "string",
+						"required": false
+					},
+					"feePaymentStatus": {
+						"title": "Stav",
+						"xxtransCode": "schema.fees.baseData.feePaymentStatus",
+						"type": "string",
+						"enum": [
+							"Zaplatené",
+							"Nezaplatené"
+						],
+						"enumxxTransCodes": [
+							"schema.fees.baseData.feePaymentStatus.paid",
+							"schema.fees.baseData.feePaymentStatus.unpaid"
+						],
+						"required": false,
+						"render": {
+							"component": "psui-selectbox",
+							"searchable": true
+						}
 					}
 				}
-            }
-        }
+			}
+		}
 	},
 	"view": {
-        "title": "Poplatok",
-		"xxtransCode":"schema.org.view",
-        "table": "fees",
-        "_security": {
+		"title": "Členský príspevok",
+		"xxtransCode": "schema.fees.view",
+		"table": "fees",
+		"_security": {
 			"_create": {
-				"_static":["Registry - write"]
+				"_static": [
+					"Registry - write"
+				]
 			},
 			"_read": {
-				"_static":["Registry - read"]
+				"_static": [
+					"Registry - read"
+				]
 			},
 			"_modify": {
-				"_static":["Registry - write"]
+				"_static": [
+					"Registry - write"
+				]
 			}
 		},
-		"properties":{
+		"properties": {
 			"$ref": "uri://registries/fees#new/properties"
 		}
 	},
 	"search": {
+		"title": "Poplatok",
+		"xxtransCode": "schema.fees.search",
 		"table": "fees",
 		"_security": {
 			"_create": {
-				"_static":["Registry - write"]
+				"_static": [
+					"Registry - write"
+				]
 			},
 			"_read": {
-				"_static":["Registry - read"]
+				"_static": [
+					"Registry - read"
+				]
 			},
 			"_modify": {
-				"_static":["Registry - write"]
+				"_static": [
+					"Registry - write"
+				]
 			}
 		},
-        "title": "Poplatok",
-		"xxtransCode":"schema.org.view",
-        "listFields": [
-            {"field":"baseData.name", "title":"Meno", "transCode":"schema.org.listFields.name"}
-        ],
-        "properties": {
-            "baseData": {
-                "$ref": "uri://registries/fees#new/properties/baseData"
-            }
-        }
+		"listFields": [
+			{
+				"field": "baseData.member.refData.name",
+				"title": "Meno",
+				"xxtransCode": "schema.fees.listFields.name"
+			},
+			{
+				"field": "baseData.member.refData.surName",
+				"title": "Priezvisko",
+				"xxtransCode": "schema.fees.listFields.surName"
+			},
+			{
+				"field": "baseData.membershipFee",
+				"title": "Výška príspevku",
+				"xxtransCode": "schema.fees.listFields.membershipFee"
+			},
+			{
+				"field": "baseData.dueDate",
+				"title": "Dátum splatnosti",
+				"xxtransCode": "schema.fees.listFields.dueDate"
+			},
+			{
+				"field": "baseData.variableSymbol",
+				"title": "Variabilný symbol",
+				"xxtransCode": "schema.fees.listFields.variableSymbol"
+			},
+			{
+				"field": "baseData.membershipFeePaid",
+				"title": "Zaplatená čiastka",
+				"xxtransCode": "schema.fees.listFields.membershipFeePaid"
+			},
+			{
+				"field": "baseData.dateOfPayment",
+				"title": "Dátum zaplatenia",
+				"xxtransCode": "schema.fees.listFields.dateOfPayment"
+			},
+			{
+				"field": "baseData.feePaymentStatus",
+				"title": "Stav",
+				"xxtransCode": "schema.fees.listFields.feePaymentStatus"
+			}
+		],
+		"properties": {
+			"baseData": {
+				"$ref": "uri://registries/fees#new/properties/baseData"
+			}
+		}
 	}
 }

@@ -1,0 +1,52 @@
+{
+    "Bankový výpis - CSV":{
+        "separator":",",
+        "collDef":[
+            {"from":"Číslo výpisu","to":"null"},
+            {"from":"Číslo stránky","to":"null"},
+            {"from":"Valuta","to":"null"},
+            {"from":"Datum zaúčtování","to":"baseData.accountingDate" },
+            {"from":"Typ transakce (C - kreditní/D - debetní) ","to":"baseData.transactionType" },
+            {"from":"Balance","to":"null" },
+            {"from":"Částka (pole 615)","to":"baseData.amount","convert":["toNumber"] },
+            {"from":"Účetní kód","to":"null" },
+            {"from":"Reference klienta","to":"baseData.clientRef" },
+            {"from":"Reference banky","to":"baseData.bankRef" },
+            {"from":"Doplňující podrobnosti", "to":"null"},
+            {"from":"Transakční kód BTC","to":"null" },
+            {"from":"Účetní text","to":"baseData.accountingText" },
+            {"from":"Měna","to":"baseData.currency" },
+            {"from":"Částka","to":"null" },
+            {"from":"Kurz","to":"baseData.ratio" },
+            {"from":"Jméno příjemce 1","to":"baseData.clientName" },
+            {"from":"Jméno příjemce 2","to":"null" },
+            {"from":"Platební titul","to":"null" },
+            {"from":"Kód banky příjemce","to":"baseData.bankCode" },
+            {"from":"Konstantní symbol","to":"baseData.constantSymbol" },
+            {"from":"Variabilní symbol","to":"baseData.variableSymbol" },
+            {"from":"Specifický symbol","to":"baseData.specificSymbol" },
+            {"from":"Kód banky plátce","to":"null" },
+            {"from":"Účet příjemce","to":"null" },
+            {"from":"Detail transakce 1","to":"baseData.transactionMessage" },
+            {"from":"Detail transakce 2","to":"null" },
+            {"from":"Detail transakce 3","to":"null" },
+            {"from":"Detail transakce 4","to":"null" },
+            {"from":"Detail transakce 5","to":"null" },
+            {"from":"Detail transakce 6","to":"null" },
+            {"from":"Detail transakce 7","to":"null" },
+            {"from":"Detail transakce 8","to":"null" },
+            {"from":"Detail transakce 9","to":"null" }
+        ],
+        "set":[{"baseData.status":"Unpaired"},
+               {"baseData.importId":"$importId"}],
+        "save":"payments",
+        "saveBySchema":"uri://registries/payments#new",
+        "checkSum":{
+            "to":"baseData.checksum",
+            "includes": ["baseData.variableSymbol","baseData.constantSymbol","baseData.accountingDate","baseData.amount","baseData.bankRef"]
+        },
+        "filter": {
+            "match": [{"baseData.transactionType":"C"}]
+        }
+    }
+}

@@ -1,449 +1,451 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "id": "uri://registries/people#person",
-    "table": "people",
-    "title": "person",
-    "_security": {
-        "_create": {
-            "_static": [
-                "Registry - write"
-            ]
-        },
-        "_read": {
-            "_static": [
-                "Registry - read"
-            ]
-        },
-        "_modify": {
-            "_static": [
-                "Registry - write"
-            ]
-        }
-    },
-    "listFields": [
-        {
-            "field": "baseData.surName",
-            "title": "Priezvisko"
-        },
-        {
-            "field": "baseData.name",
-            "title": "Meno"
-        },
-        {
-            "field": "contactInfo.email",
-            "title": "Email"
-        }
-    ],
-    "properties": {
-        "systemCredentials": {
-            "$ref": "uri://registries/security#systemCredentials"
-        },
-        "baseData": {
-            "title": "Základné údaje",
-            "transCode": "schema.people.baseData",
-            "type": "object",
-            "properties": {
-                "bornNumber": {
-                    "title": "Rodné číslo",
-                    "xxtransCode": "schema.people.baseData.bornNumber",
-                    "type": "string",
-                    "required": true
-                },
-                "name": {
-                    "title": "Meno",
-                    "transCode": "schema.people.baseData.name",
-                    "type": "string",
-                    "required": true
-                },
-                "surName": {
-                    "title": "Priezvisko",
-                    "transCode": "schema.people.baseData.surName",
-                    "type": "string",
-                    "required": true
-                },
-                "bornName": {
-                    "title": "Rodné priezvisko",
-                    "transCode": "schema.people.baseData.bornName",
-                    "type": "string",
-                    "required": false
-                },
-                "title": {
-                    "title": "Titul",
-                    "type": "string",
-                    "required": false
-                },
-                "birthDate": {
-                    "title": "Dátum narodenia",
-                    "type": "date",
-                    "required": true,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                },
-                "gender": {
-                    "title": "Pohlavie",
-                    "type": " string",
-                    "enum": [
-                        "M",
-                        "Z"
-                    ],
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/people#person",
+	"table": "people",
+	"title": "person",
+	"_security": {
+		"_create": {
+			"_static": [
+				"Registry - write"
+			]
+		},
+		"_read": {
+			"_static": [
+				"Registry - read"
+			]
+		},
+		"_modify": {
+			"_static": [
+				"Registry - write"
+			]
+		}
+	},
+	"listFields": [
+		{
+			"field": "baseData.surName",
+			"title": "Priezvisko"
+		},
+		{
+			"field": "baseData.name",
+			"title": "Meno"
+		},
+		{
+			"field": "contactInfo.email",
+			"title": "Email"
+		}
+	],
+	"properties": {
+		"systemCredentials": {
+			"$ref": "uri://registries/security#systemCredentials"
+		},
+		"baseData": {
+			"title": "Základné údaje",
+			"transCode": "schema.people.baseData",
+			"type": "object",
+			"properties": {
+				"bornNumber": {
+					"title": "Rodné číslo",
+					"xxtransCode": "schema.people.baseData.bornNumber",
+					"type": "string",
+					"required": true
+				},
+				"name": {
+					"title": "Meno",
+					"transCode": "schema.people.baseData.name",
+					"type": "string",
+					"required": true,
+					"collate": true
+				},
+				"surName": {
+					"title": "Priezvisko",
+					"transCode": "schema.people.baseData.surName",
+					"type": "string",
+					"required": true,
+					"collate": true
+				},
+				"bornName": {
+					"title": "Rodné priezvisko",
+					"transCode": "schema.people.baseData.bornName",
+					"type": "string",
+					"required": false
+				},
+				"title": {
+					"title": "Titul",
+					"type": "string",
+					"required": false
+				},
+				"birthDate": {
+					"title": "Dátum narodenia",
+					"type": "date",
+					"required": true,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				},
+				"gender": {
+					"title": "Pohlavie",
+					"type": " string",
+					"enum": [
+						"M",
+						"Z"
+					],
 					"enumTransCodes": [
 						"schema.people.baseData.gender.enum.M",
 						"schema.people.baseData.gender.enum.Z"
 					],
-                    "required": true,
+					"required": true,
 					"render": {
 						"component": "psui-selectbox",
 						"searchable": true
 					}
-                },
-                "nationality": {
-                    "$ref": "uri://registries/nationality#country"
-                }
-            }
-        },
-        "photoInfo": {
-            "title": "Fotografie",
-            "type": "object",
-            "properties": {
-                "photo": {
-                    "title": "Fotografia",
-                    "type": "string",
-                    "required": true,
-                    "render": {
-                        "component": "psui-uploadable-image",
-                        "height": 244,
-                        "width": 206
-                    }
-                }
-            }
-        },
-        "contactInfo": {
-            "title": "Kontaktné údaje",
-            "type": "object",
-            "properties": {
-                "street": {
-                    "title": "Ulica",
-                    "type": "string",
-                    "required": true
-                },
-                "houseNumber": {
-                    "title": "Číslo domu",
-                    "type": "string",
-                    "required": true
-                },
-                "city": {
-                    "$ref": "uri://registries/towns#town"
-                },
-                "zipCode": {
-                    "title": "PSČ",
-                    "type": "string",
-                    "required": true
-                },
-                "country": {
-                    "$ref": "uri://registries/countries#country"
-                },
-                "phoneNumber": {
-                    "title": "Telefón",
-                    "type": "string",
-                    "required": false
-                },
-                "mobileNumber": {
-                    "title": "Mobil",
-                    "type": "string",
-                    "required": false
-                },
-                "email": {
-                    "title": "E-mail",
-                    "type": "string",
-                    "required": false
-                }
-            }
-        },
-        "bankInfo": {
-            "title": "Bankové spojenie",
-            "type": "object",
-            "properties": {
-                "bankAccount": {
-                    "title": "Číslo účtu",
-                    "type": "string",
-                    "required": false
-                },
-                "bankCode": {
-                    "title": "Kód banky",
-                    "type": "string",
-                    "required": false
-                },
-                "iban": {
-                    "title": "IBAN",
-                    "type": "string",
-                    "required": false
-                },
-                "swift": {
-                    "title": "SWIFT",
-                    "type": "string",
-                    "required": false
-                }
-            }
-        },
-        "hockeyPlayerInfo": {
-            "title": "Profil člena",
-            "type": "object",
-            "properties": {
-                "clubName": {
-                    "title": "Názov ZO",
-                    "required": false,
-                    "$objectLink": {
-                        "registry": "organizations",
-                        "name": "baseData.name"
-                    }
-                },
-                "suborganizationName": {
-                    "title": "Obvodná organizácia",
-                    "type": "string",
-                    "required": false
-                },
-                "memberId": {
-                    "title": "Číslo člena",
-                    "type": "string",
-                    "required": false
-                },
-                "fishlicenceNumber": {
-                    "title": "Číslo rybárskeho lístka",
-                    "type": "string",
-                    "required": false
-                },
-                "positionName": {
-                    "title": "Funkcia",
-                    "type": "string",
-                    "required": false
-                },
-                "membershipEnrolment": {
-                    "title": "Člen SRZ od",
-                    "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                },
-                "membershipExpiration": {
-                    "title": "Člen SRZ do",
-                    "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                },
-                "membershipBreak": {
-                    "title": "Prerušené členstvo v SRZ do",
-                    "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                },
-                "brigadeDuty": {
-                    "title": "Brigádnická povinnosť",
-                    "type": "string",
-                    "required": false
-                },
-                "disciplinaryPunishment": {
-                    "title": "Disciplinárne previnenia",
-                    "type": "string",
-                    "required": false
-                }
-            }
-        },
-        "fishermanProfile": {
-            "title": "Profil člena",
-            "type": "object",
-            "properties": {
-                "clubName": {
-                    "title": "Názov ZO",
-                    "required": false,
-                    "$objectLink": {
-                        "registry": "organizations",
-                        "name": "baseData.name"
-                    }
-                },
-                "suborganizationName": {
-                    "title": "Obvodná organizácia",
-                    "type": "string",
-                    "required": false
-                },
-                "memberId": {
-                    "title": "Číslo člena",
-                    "type": "string",
-                    "required": false
-                },
-                "fishlicenceNumber": {
-                    "title": "Číslo rybárskeho lístka",
-                    "type": "string",
-                    "required": false
-                },
-                "positionName": {
-                    "title": "Funkcia",
-                    "type": "string",
-                    "required": false
-                },
-                "MembershipStartDate": {
-                    "title": "Člen v SRZ od",
-                    "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                },
-                "MembershipEndDate": {
-                    "title": "Člen v SRZ do",
-                    "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                },
-                "membershipBreak": {
-                    "title": "Prerušené členstvo v SRZ od",
-                    "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                }
-            }
-        },
-        "unionMemberEmployerInfo": {
-            "title": "Údaje zamestnávateľa",
-            "type": "object",
-            "properties": {
-                "employeeNumber": {
-                    "title": "Osobné číslo",
-                    "type": "string",
-                    "required": false
-                },
-                "employedFrom": {
-                    "title": "V zamestnaní od",
-                    "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                },
-                "employer": {
-                    "title": "Zamestnávateľ",
-                    "required": false,
-                    "$objectLink": {
-                        "registry": "organizations",
-                        "name": "baseData.name"
-                    }
-                },
-                "departmentName": {
-                    "title": "Pracovisko",
-                    "type": "string",
-                    "required": false
-                },
-                "occupationName": {
-                    "title": "Pracovné zaradenie",
-                    "type": "string",
-                    "required": false
-                }
-            }
-        },
-        "unionMemberUnionsInfo": {
-            "title": "Údaje Odborov",
-            "type": "object",
-            "properties": {
-                "primaryOrganizationMembershipFrom": {
-                    "title": "Evidov.v ZO od",
-                    "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                },
-                "unionMembershipFrom": {
-                    "title": "V odboroch od",
-                    "type": "string",
-                    "required": false,
-                    "render": {
-                        "component": "psui-datepicker"
-                    }
-                },
-                "primaryOrganizationName": {
-                    "title": "Základná organizácia",
-                    "required": true,
-                    "$objectLink": {
-                        "registry": "organizations",
-                        "name": "baseData.name"
-                    }
-                },
-                "unionDepartmentName": {
-                    "title": "Výbor",
-                    "type": "string",
-                    "required": false
-                }
-            }
-        },
-        "otherInfo": {
-            "title": "Ostatné údaje",
-            "type": "object",
-            "properties": {
-                "membershipFee": {
-                    "title": "Zaplatený členský poplatok?",
-                    " type": "string",
-                    "enum": [
-                        "A",
-                        "N"
-                    ],
+				},
+				"nationality": {
+					"$ref": "uri://registries/nationality#country"
+				}
+			}
+		},
+		"photoInfo": {
+			"title": "Fotografie",
+			"type": "object",
+			"properties": {
+				"photo": {
+					"title": "Fotografia",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-uploadable-image",
+						"height": 244,
+						"width": 206
+					}
+				}
+			}
+		},
+		"contactInfo": {
+			"title": "Kontaktné údaje",
+			"type": "object",
+			"properties": {
+				"street": {
+					"title": "Ulica",
+					"type": "string",
+					"required": true
+				},
+				"houseNumber": {
+					"title": "Číslo domu",
+					"type": "string",
+					"required": true
+				},
+				"city": {
+					"$ref": "uri://registries/towns#town"
+				},
+				"zipCode": {
+					"title": "PSČ",
+					"type": "string",
+					"required": true
+				},
+				"country": {
+					"$ref": "uri://registries/nationality#country"
+				},
+				"phoneNumber": {
+					"title": "Telefón",
+					"type": "string",
+					"required": false
+				},
+				"mobileNumber": {
+					"title": "Mobil",
+					"type": "string",
+					"required": false
+				},
+				"email": {
+					"title": "E-mail",
+					"type": "string",
+					"required": false
+				}
+			}
+		},
+		"bankInfo": {
+			"title": "Bankové spojenie",
+			"type": "object",
+			"properties": {
+				"bankAccount": {
+					"title": "Číslo účtu",
+					"type": "string",
+					"required": false
+				},
+				"bankCode": {
+					"title": "Kód banky",
+					"type": "string",
+					"required": false
+				},
+				"iban": {
+					"title": "IBAN",
+					"type": "string",
+					"required": false
+				},
+				"swift": {
+					"title": "SWIFT",
+					"type": "string",
+					"required": false
+				}
+			}
+		},
+		"hockeyPlayerInfo": {
+			"title": "Profil člena",
+			"type": "object",
+			"properties": {
+				"clubName": {
+					"title": "Názov ZO",
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
+				},
+				"suborganizationName": {
+					"title": "Obvodná organizácia",
+					"type": "string",
+					"required": false
+				},
+				"memberId": {
+					"title": "Číslo člena",
+					"type": "string",
+					"required": false
+				},
+				"fishlicenceNumber": {
+					"title": "Číslo rybárskeho lístka",
+					"type": "string",
+					"required": false
+				},
+				"positionName": {
+					"title": "Funkcia",
+					"type": "string",
+					"required": false
+				},
+				"membershipEnrolment": {
+					"title": "Člen SRZ od",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				},
+				"membershipExpiration": {
+					"title": "Člen SRZ do",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				},
+				"membershipBreak": {
+					"title": "Prerušené členstvo v SRZ do",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				},
+				"brigadeDuty": {
+					"title": "Brigádnická povinnosť",
+					"type": "string",
+					"required": false
+				},
+				"disciplinaryPunishment": {
+					"title": "Disciplinárne previnenia",
+					"type": "string",
+					"required": false
+				}
+			}
+		},
+		"fishermanProfile": {
+			"title": "Profil člena",
+			"type": "object",
+			"properties": {
+				"clubName": {
+					"title": "Názov ZO",
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
+				},
+				"suborganizationName": {
+					"title": "Obvodná organizácia",
+					"type": "string",
+					"required": false
+				},
+				"memberId": {
+					"title": "Číslo člena",
+					"type": "string",
+					"required": false
+				},
+				"fishlicenceNumber": {
+					"title": "Číslo rybárskeho lístka",
+					"type": "string",
+					"required": false
+				},
+				"positionName": {
+					"title": "Funkcia",
+					"type": "string",
+					"required": false
+				},
+				"MembershipStartDate": {
+					"title": "Člen v SRZ od",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				},
+				"MembershipEndDate": {
+					"title": "Člen v SRZ do",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				},
+				"membershipBreak": {
+					"title": "Prerušené členstvo v SRZ od",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				}
+			}
+		},
+		"unionMemberEmployerInfo": {
+			"title": "Údaje zamestnávateľa",
+			"type": "object",
+			"properties": {
+				"employeeNumber": {
+					"title": "Osobné číslo",
+					"type": "string",
+					"required": false
+				},
+				"employedFrom": {
+					"title": "V zamestnaní od",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				},
+				"employer": {
+					"title": "Zamestnávateľ",
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
+				},
+				"departmentName": {
+					"title": "Pracovisko",
+					"type": "string",
+					"required": false
+				},
+				"occupationName": {
+					"title": "Pracovné zaradenie",
+					"type": "string",
+					"required": false
+				}
+			}
+		},
+		"unionMemberUnionsInfo": {
+			"title": "Údaje Odborov",
+			"type": "object",
+			"properties": {
+				"primaryOrganizationMembershipFrom": {
+					"title": "Evidov.v ZO od",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				},
+				"unionMembershipFrom": {
+					"title": "V odboroch od",
+					"type": "string",
+					"required": false,
+					"render": {
+						"component": "psui-datepicker"
+					}
+				},
+				"primaryOrganizationName": {
+					"title": "Základná organizácia",
+					"required": true,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
+				},
+				"unionDepartmentName": {
+					"title": "Výbor",
+					"type": "string",
+					"required": false
+				}
+			}
+		},
+		"otherInfo": {
+			"title": "Ostatné údaje",
+			"type": "object",
+			"properties": {
+				"membershipFee": {
+					"title": "Zaplatený členský poplatok?",
+					" type": "string",
+					"enum": [
+						"A",
+						"N"
+					],
 					"enumTransCodes": [
 						"schema.people.enum.A",
 						"schema.people.enum.N"
 					],
-                    "required": false,
+					"required": false,
 					"render": {
 						"component": "psui-selectbox",
 						"searchable": true
 					}
-                },
-                "idCardNumber": {
-                    "title": "Číslo OP",
-                    "type": "string",
-                    "required": false
-                },
-                "brigadeDuty": {
-                    "title": "Brigádnická povinnosť",
-                    "type": "string",
-                    "required": false
-                },
-                "disciplinaryPunishment": {
-                    "title": "Disciplinárne previnenia",
-                    "type": "string",
-                    "required": false
-                },
-                "isPhotoPublic": {
-                    "title": "Je fotka verejná",
-                    "type": "boolean",
-                    "enum": [
-                        "A",
-                        "N"
-                    ],
+				},
+				"idCardNumber": {
+					"title": "Číslo OP",
+					"type": "string",
+					"required": false
+				},
+				"brigadeDuty": {
+					"title": "Brigádnická povinnosť",
+					"type": "string",
+					"required": false
+				},
+				"disciplinaryPunishment": {
+					"title": "Disciplinárne previnenia",
+					"type": "string",
+					"required": false
+				},
+				"isPhotoPublic": {
+					"title": "Je fotka verejná",
+					"type": "boolean",
+					"enum": [
+						"A",
+						"N"
+					],
 					"enumTransCodes": [
 						"schema.people.enum.A",
 						"schema.people.enum.N"
 					],
-                    "required": false,
+					"required": false,
 					"render": {
 						"component": "psui-selectbox",
 						"searchable": true
 					}
-                },
-                "note": {
-                    "title": "Poznámka",
-                    "type": "string",
-                    "required": false,
-                    "large": true
-                }
-            }
-        }
-    }
+				},
+				"note": {
+					"title": "Poznámka",
+					"type": "string",
+					"required": false,
+					"large": true
+				}
+			}
+		}
+	}
 }

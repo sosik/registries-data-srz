@@ -5,8 +5,9 @@
 	"country":{
 		"title": "Štátna prísluštnosť",
 		"xxtransCode": "schema.people.baseData.nationality",
-        "type": "string",
+		"type": "string",
 		"enum":[
+			"SVK",
 			"AFG",
 			"ALA",
 			"ALB",
@@ -259,6 +260,7 @@
 			"ZWE"
 		],
 		"enumTransCodes":[
+				"schemas.countries.enum.SVK",
 				"schemas.countries.enum.AFG",
 				"schemas.countries.enum.ALA",
 				"schemas.countries.enum.ALB",
@@ -511,7 +513,7 @@
 				"schemas.countries.enum.ZWE"
 			
 		],
-        "required": true,
+		"required": true,
 		"render": {
 			"component": "psui-selectbox",
 			"searchable": true
